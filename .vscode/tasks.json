@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build PyPI",
+            "label": "Build",
             "type": "shell",
-            "command": "python setup.py sdist bdist_wheel",
+            "command": "",
             "presentation": {
                 "reveal": "silent"
             },
@@ -14,17 +14,28 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": []
+            "dependsOn":["Build Executable", "Build PyPI"],
+            "problemMatcher": [],
         },
         {
-            "label": "Build Executable",
+            "label": "Build PyPI",
             "type": "shell",
-            "command": "pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/command_line.py",
+            "command": "python setup.py sdist bdist_wheel",
             "presentation": {
                 "reveal": "silent"
             },
             "group": "build",
-            "problemMatcher": []
+            "problemMatcher": [],
+        },
+        {
+            "label": "Build Executable",
+            "type": "shell",
+            "command": "pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/cli/main.py",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "group": "build",
+            "problemMatcher": [],
         },
         {
             "label": "Publish to PyPI",
@@ -34,7 +45,7 @@
                 "reveal": "always"
             },
             "group": "build",
-            "problemMatcher": []
-        }
+            "problemMatcher": [],
+        },
     ]
 }

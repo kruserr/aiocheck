@@ -5,9 +5,13 @@
 
     Example:
     ```
-    ./aiocheck.exe localhost
+    aiocheck localhost
     ```
 
     :copyright: 2020 kruserr
     :license: MIT
 """
+
+from aiocheck.Database import Database
+from aiocheck.Host import Host
+import aiocheck.cli

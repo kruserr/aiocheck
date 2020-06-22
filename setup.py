@@ -1,29 +1,41 @@
 import setuptools
 
 
-with open("README.md", "r") as fh:
+with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="aiocheck",
-    version="0.0.4",
-    author="kruserr",
-    description="A python asyncio host health checker using native ping commands",
+    name='aiocheck',
+    version='0.0.5',
+    author='kruserr',
+    description='A python asyncio host health checker using native ping commands',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/kruserr/aiocheck",
-    packages=setuptools.find_packages(),
+    long_description_content_type='text/markdown',
+    url='https://github.com/kruserr/aiocheck',
+    keywords='asyncio host health checker native ping',
+    project_urls={
+        'Documentation': 'https://github.com/kruserr/aiocheck/wiki',
+        'Source': 'https://github.com/kruserr/aiocheck',
+    },
+    packages=setuptools.find_packages(
+        where='src',
+    ),
     package_dir={
         '': 'src',
     },
     install_requires=[],
     entry_points = {
-        'console_scripts': ['aiocheck=aiocheck.command_line:main'],
+        'console_scripts': ['aiocheck=aiocheck.cli:main'],
     },
+    zip_safe=True,
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        'Topic :: System :: Networking :: Monitoring',
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
 )
