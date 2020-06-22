@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="aiocheck",
-    version="0.0.1",
+    version="0.0.2",
     author="kruserr",
     description="A python asyncio host health checker using native ping commands",
     long_description=long_description,
