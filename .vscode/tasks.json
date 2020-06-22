@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "never"
             },
             "group": {
                 "kind": "build",
