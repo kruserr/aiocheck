@@ -1,0 +1,29 @@
+# Editors
+.vs/*
+.atom/*
+.idea/*
+.vscode/*
+!*tasks.json
+!*launch.json
+
+# Build and Binary
+bin/*
+build/*
+Build/*
+bin-int/*
+
+# Temp files
+*.pyc
+*.sec
+*venv*
+*.class
+*.~lock
+*.egg-info
+*secret.ini
+*__pycache__*
+
+# Custom
+test/test_container/db
+*.aiocheck_persist.json
+*.aiocheck_log.csv
+aiocheck.spec
