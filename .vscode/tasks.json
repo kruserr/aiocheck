@@ -31,7 +31,7 @@
             "type": "shell",
             "command": "python -m twine upload dist/*",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "always"
             },
             "group": "build",
             "problemMatcher": []
