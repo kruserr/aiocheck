@@ -25,5 +25,5 @@ bin-int/*
 # Custom
 test/test_container/db
 *.aiocheck_persist.json
-*.aiocheck_log.csv
+*aiocheck_log.csv
 aiocheck.spec

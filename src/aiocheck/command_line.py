@@ -1,5 +1,5 @@
-from Database import Database
-from Host import Host
+from .Database import Database
+from .Host import Host
 
 import os
 import sys
