@@ -43,5 +43,5 @@ aiocheck 10.20.30.40 10.20.30.50 10.20.30.60
 ```
 git clone https://github.com/kruserr/aiocheck.git
 cd aiocheck
-./dist/aiocheck.exe 10.20.30.40 10.20.30.50 10.20.30.60
+./bin/aiocheck.exe 10.20.30.40 10.20.30.50 10.20.30.60
 ```

@@ -6,18 +6,15 @@
 !*tasks.json
 !*launch.json
 
-# Build and Binary
-bin/*
-build/*
-Build/*
-bin-int/*
-
 # Temp files
 *.pyc
 *.sec
 *venv*
 *.class
 *.~lock
+build/*
+Build/*
+bin-int/*
 *.egg-info
 *secret.ini
 *__pycache__*
