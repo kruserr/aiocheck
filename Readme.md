@@ -45,3 +45,17 @@ git clone https://github.com/kruserr/aiocheck.git
 cd aiocheck
 ./bin/aiocheck.exe 10.20.30.40 10.20.30.50 10.20.30.60
 ```
+
+# Develop
+
+### Open in VS Code
+```
+git clone https://github.com/kruserr/aiocheck.git
+cd aiocheck
+code .
+```
+
+### Run VS Code Tasks
+```
+CTRL+SHIFT+B
+```
