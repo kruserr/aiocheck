@@ -1,0 +1,24 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build PyPI",
+            "type": "shell",
+            "command": "python setup.py sdist bdist_wheel",
+            "presentation": { "reveal": "silent" },
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            }
+        },
+        {
+            "label": "Build Executable",
+            "type": "shell",
+            "command": "pyinstaller --onefile src/aiocheck/command_line.py",
+            "presentation": { "reveal": "silent" },
+            "group": "build",
+        },
+    ]
+}
