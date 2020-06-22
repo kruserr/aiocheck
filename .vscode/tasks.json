@@ -7,25 +7,34 @@
             "label": "Build PyPI",
             "type": "shell",
             "command": "python setup.py sdist bdist_wheel",
-            "presentation": { "reveal": "silent" },
+            "presentation": {
+                "reveal": "silent"
+            },
             "group": {
                 "kind": "build",
-                "isDefault": true,
-            }
+                "isDefault": true
+            },
+            "problemMatcher": []
         },
         {
             "label": "Build Executable",
             "type": "shell",
-            "command": "pyinstaller --onefile src/aiocheck/command_line.py",
-            "presentation": { "reveal": "silent" },
+            "command": "pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/command_line.py",
+            "presentation": {
+                "reveal": "silent"
+            },
             "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "Publish to PyPI",
             "type": "shell",
             "command": "python -m twine upload dist/*",
-            "presentation": { "reveal": "silent" },
+            "presentation": {
+                "reveal": "silent"
+            },
             "group": "build",
-        },
+            "problemMatcher": []
+        }
     ]
 }
