@@ -20,5 +20,12 @@
             "presentation": { "reveal": "silent" },
             "group": "build",
         },
+        {
+            "label": "Publish to PyPI",
+            "type": "shell",
+            "command": "python -m twine upload dist/*",
+            "presentation": { "reveal": "silent" },
+            "group": "build",
+        },
     ]
 }
