@@ -59,8 +59,6 @@ def main(func_args = ''):
     if len(addresses) == 0:
         select = ''
         while select != '0':
-            inner_select = ''
-
             clear_console()
             print(f"{get_header('Menu')}\n[1] - Run\n[2] - Add Address\n[0] - Exit\n")
 
@@ -80,9 +78,7 @@ def main(func_args = ''):
                 print(f"{get_header('Add Address')}")
 
                 inner_select = input('Enter an Address: ')
-
-                if len(inner_select) > 0:
-                    addresses.add(inner_select.split())
+                addresses.update(inner_select.split())
 
     clear_console()
     sys.stdout.write(f"{get_header('Running')}\nPress CTRL+C to exit ")
