@@ -52,7 +52,25 @@
             "presentation": {
                 "reveal": "silent"
             },
-            "group": "build",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Update Wiki",
+            "type": "shell",
+            "command": "git fetch wiki master",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "dependsOn":["git pull wiki"],
+            "problemMatcher": [],
+        },
+        {
+            "label": "git pull wiki",
+            "type": "shell",
+            "command": "git subtree pull --prefix wiki wiki master --squash",
+            "presentation": {
+                "reveal": "silent"
+            },
             "problemMatcher": [],
         },
     ]
