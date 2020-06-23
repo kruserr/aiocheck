@@ -45,5 +45,15 @@
             "group": "build",
             "problemMatcher": [],
         },
+        {
+            "label": "Install",
+            "type": "shell",
+            "command": "python -m pip install -e .",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "group": "build",
+            "problemMatcher": [],
+        },
     ]
 }
