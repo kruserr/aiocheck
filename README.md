@@ -46,6 +46,15 @@ cd aiocheck
 python src/aiocheck/cli/main.py localhost
 ```
 
+### Using python interpreter directly and setuptools from GitHub
+```
+git clone https://github.com/kruserr/aiocheck.git
+cd aiocheck
+pip install setuptools wheel
+python setup.py install
+aiocheck localhost
+```
+
 ### Using binary from GitHub
 ```
 git clone https://github.com/kruserr/aiocheck.git
