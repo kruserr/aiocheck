@@ -4,10 +4,10 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "",
+            "command": "echo Built",
             "presentation": {
                 "reveal": "silent",
-                "clear": true,
+                "clear": false,
                 "showReuseMessage": false,
             },
             "group": {
@@ -67,14 +67,25 @@
         {
             "label": "Update Wiki",
             "type": "shell",
+            "command": "echo Wiki Updated",
+            "presentation": {
+                "reveal": "silent",
+                "clear": false,
+                "showReuseMessage": false,
+            },
+            "dependsOn":["git fetch wiki", "git subtree pull wiki", "git subtree push wiki"],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+        },
+        {
+            "label": "git fetch wiki",
+            "type": "shell",
             "command": "git fetch wiki master",
             "presentation": {
                 "reveal": "silent",
                 "clear": true,
                 "showReuseMessage": false,
             },
-            "dependsOn":["git subtree pull wiki", "git subtree push wiki"],
-            "dependsOrder": "sequence",
             "problemMatcher": [],
         },
         {
@@ -83,7 +94,7 @@
             "command": "git subtree pull --prefix wiki wiki master --squash",
             "presentation": {
                 "reveal": "silent",
-                "clear": true,
+                "clear": false,
                 "showReuseMessage": false,
             },
             "problemMatcher": [],
@@ -94,7 +105,7 @@
             "command": "git subtree push --prefix wiki wiki master",
             "presentation": {
                 "reveal": "silent",
-                "clear": true,
+                "clear": false,
                 "showReuseMessage": false,
             },
             "problemMatcher": [],
