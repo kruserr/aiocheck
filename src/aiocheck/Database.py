@@ -16,14 +16,23 @@ class Database():
         ```
 
         The Database supports async read and write
-        from memory, and will persist to disk
-        async every 5 seconds.
+        from/to memory, and will persist to disk
+        every 5 seconds.
+
+        Default mode is 'verbose', which will log
+        all events in append mode to the csv log.
+        
+        You may wish to change to 'status' mode,
+        to just get one entry, the latest log message
+        foreach tracked Host in the csv file.
     """
 
-    def __init__(self):
+    def __init__(self, mode = 'verbose'):
         self.__hosts = []
         self.__errors = []
+        self.__mode = mode
         self.__last_errors = []
+        self.__add_header = True
         self.__file_locked = False
         self.__errors_locked = False
         
@@ -202,17 +211,33 @@ class Database():
 
             self.__file_locked = True
 
-            if len(self.__errors) > 0:
+            if (len(self.__errors) > 0) and (self.__mode == 'status'):
                 with open('.aiocheck_persist.json', 'w') as f:
                     json.dump(self.__errors, f, indent=4, default=str)
-        
-            result = 'address, alive, timestamp\n'
+
+            header = 'address, alive, timestamp\n'
+
+            result = ''
+            if self.__mode == 'status':
+                result = header
+
+            if (self.__mode == 'verbose') and (self.__add_header):
+                with open('aiocheck_log.csv', 'r') as f:
+                    log_file = f.read()
+                if log_file.split('\n')[0] != header.replace('\n', ''):
+                    result = header
+                    self.__add_header = False
 
             for error in self.__errors:
                 result += f"{error['addr']}, {error['alive']}, {error['timestamp']}\n"
 
+            if self.__mode == 'status':
+                file_mode = 'w'
+            if self.__mode == 'verbose':
+                file_mode = 'a'
+
             if len(result) > 0:
-                with open('aiocheck_log.csv', 'w') as f:
+                with open('aiocheck_log.csv', file_mode) as f:
                     f.write(result)
 
             self.__last_errors = self.__errors
