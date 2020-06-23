@@ -61,6 +61,7 @@
                 "reveal": "always",
                 "clear": true,
                 "showReuseMessage": true,
+                "focus": true,
             },
             "group": "build",
             "problemMatcher": [],
