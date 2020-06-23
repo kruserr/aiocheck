@@ -34,7 +34,6 @@ For further details visit the [Documentation](https://github.com/kruserr/aiochec
 <br>
 
 # Install
-
 ### Using pip
 ```
 pip install aiocheck
@@ -55,10 +54,10 @@ For further install instructions visit the [Documentation](https://github.com/kr
 <br>
 
 # Develop
-
 ### Open in VS Code
 ```
 git clone https://github.com/kruserr/aiocheck.git
+pip install --user --upgrade setuptools wheel twine pyinstaller
 cd aiocheck
 code .
 ```
