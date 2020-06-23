@@ -3,7 +3,7 @@
 
     Example:
     ```
-    aiocheck.cli.main()
+    aiocheck.cli.main(['localhost'])
     ```
 """
 
@@ -21,7 +21,7 @@ def main(addresses = []):
 
         Example:
         ```
-        aiocheck.cli.main()
+        aiocheck.cli.main(['localhost'])
         ```
     """
 

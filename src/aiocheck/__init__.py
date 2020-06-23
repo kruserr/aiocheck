@@ -5,7 +5,8 @@
 
     Example:
     ```
-    aiocheck localhost
+    import aiocheck
+    aiocheck.cli.main(['localhost'])
     ```
 
     :copyright: 2020 kruserr

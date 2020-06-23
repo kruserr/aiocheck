@@ -3,7 +3,7 @@
 
     Example:
     ```
-    aiocheck.cli.main()
+    aiocheck.cli.main(['localhost'])
     ```
 """
 
