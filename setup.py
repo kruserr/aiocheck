@@ -1,15 +1,18 @@
 import setuptools
 
 
-with open('README.md', 'r') as fh:
-    long_description = fh.read()
+with open('README.md', 'r') as f:
+    LONG_DESCRIPTION = f.read()
+
+with open('VERSION', 'r') as f:
+    VERSION = f.read()
 
 setuptools.setup(
     name='aiocheck',
-    version='0.0.6',
+    version=VERSION,
     author='kruserr',
     description='A python asyncio host health checker using native ping commands',
-    long_description=long_description,
+    long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='https://github.com/kruserr/aiocheck',
     keywords='asyncio host health checker native ping',
