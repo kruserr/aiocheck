@@ -1,4 +1,6 @@
+# aiocheck Wiki
 ### [<- Back](Home)
+
 # Install
 ### Using pip
 ```
