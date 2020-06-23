@@ -14,7 +14,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn":["Build Executable", "Build PyPI"],
+            "dependsOn":["Build Executable", "wsl pyinstaller", "Build PyPI"],
             "problemMatcher": [],
         },
         {
@@ -35,6 +35,18 @@
             "command": "pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/cli/main.py",
             "presentation": {
                 "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
+            },
+            "group": "build",
+            "problemMatcher": [],
+        },
+        {
+            "label": "wsl pyinstaller",
+            "type": "shell",
+            "command": "wsl ~/.local/bin/pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/cli/main.py",
+            "presentation": {
+                "reveal": "never",
                 "clear": true,
                 "showReuseMessage": false,
             },
