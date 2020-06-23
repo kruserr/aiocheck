@@ -18,6 +18,7 @@ bin-int/*
 *.egg-info
 *secret.ini
 *__pycache__*
+dist/*
 
 # Custom
 test/test_container/db
