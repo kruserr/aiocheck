@@ -186,10 +186,6 @@ class Database():
                         return False
         return True
 
-    def __load_from_log(self):
-        files = os.listdir(os.curdir)
-        print(files)
-
     async def __persist_loop(self):
         while True:
             asyncio.ensure_future(self.__export())
