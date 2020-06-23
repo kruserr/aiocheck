@@ -1,8 +1,10 @@
 # aiocheck
+
 A python asyncio host health checker using native ping commands.
 
 Example:
 ```
+pip install aiocheck
 aiocheck 10.20.30.40 10.20.30.50 10.20.30.60
 ```
 
@@ -25,33 +27,17 @@ address, alive, timestamp
 10.20.30.50, False, 2020-06-22 17:35:40.398660
 ```
 
+<br>
+
+For further details visit the [Documentation](https://github.com/kruserr/aiocheck/wiki).
+
+<br>
+
 # Install
 
 ### Using pip
 ```
 pip install aiocheck
-aiocheck localhost
-```
-
-### Using pip from GitHub
-```
-pip install "git+https://github.com/kruserr/aiocheck.git"
-aiocheck localhost
-```
-
-### Using python interpreter directly from GitHub
-```
-git clone https://github.com/kruserr/aiocheck.git
-cd aiocheck
-python src/aiocheck/cli/main.py localhost
-```
-
-### Using python interpreter directly and setuptools from GitHub
-```
-git clone https://github.com/kruserr/aiocheck.git
-cd aiocheck
-pip install setuptools wheel
-python setup.py install
 aiocheck localhost
 ```
 
@@ -62,14 +48,11 @@ cd aiocheck
 ./bin/aiocheck.exe localhost
 ```
 
-### Using self-built binary from GitHub
-```
-git clone https://github.com/kruserr/aiocheck.git
-cd aiocheck
-pip install pyinstaller
-pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/cli/main.py
-./bin/aiocheck.exe localhost
-```
+<br>
+
+For further install instructions visit the [Documentation](https://github.com/kruserr/aiocheck/wiki/Install).
+
+<br>
 
 # Develop
 
@@ -89,3 +72,7 @@ CTRL+P
 ```
 >Tasks: Run Task
 ```
+
+<br>
+
+For further developing instructions visit the [Documentation](https://github.com/kruserr/aiocheck/wiki/Develop).
