@@ -80,7 +80,7 @@
         {
             "label": "git fetch wiki",
             "type": "shell",
-            "command": "git fetch wiki master",
+            "command": "git fetch https://github.com/kruserr/aiocheck.wiki.git master",
             "presentation": {
                 "reveal": "silent",
                 "clear": true,
@@ -91,7 +91,7 @@
         {
             "label": "git subtree pull wiki",
             "type": "shell",
-            "command": "git subtree pull --prefix wiki wiki master --squash",
+            "command": "git subtree pull --prefix wiki https://github.com/kruserr/aiocheck.wiki.git master --squash",
             "presentation": {
                 "reveal": "silent",
                 "clear": false,
@@ -102,7 +102,7 @@
         {
             "label": "git subtree push wiki",
             "type": "shell",
-            "command": "git subtree push --prefix wiki wiki master",
+            "command": "git subtree push --prefix wiki https://github.com/kruserr/aiocheck.wiki.git master",
             "presentation": {
                 "reveal": "silent",
                 "clear": false,
