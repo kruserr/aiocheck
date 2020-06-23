@@ -8,7 +8,7 @@
             "presentation": {
                 "reveal": "silent",
                 "clear": false,
-                "showReuseMessage": false,
+                "showReuseMessage": true,
             },
             "group": {
                 "kind": "build",
@@ -60,7 +60,7 @@
             "presentation": {
                 "reveal": "always",
                 "clear": true,
-                "showReuseMessage": false,
+                "showReuseMessage": true,
             },
             "group": "build",
             "problemMatcher": [],
@@ -72,7 +72,7 @@
             "presentation": {
                 "reveal": "silent",
                 "clear": true,
-                "showReuseMessage": false,
+                "showReuseMessage": true,
             },
             "problemMatcher": [],
         },
@@ -83,7 +83,7 @@
             "presentation": {
                 "reveal": "silent",
                 "clear": false,
-                "showReuseMessage": false,
+                "showReuseMessage": true,
             },
             "dependsOn":["git fetch wiki", "git subtree pull wiki", "git subtree push wiki"],
             "dependsOrder": "sequence",
