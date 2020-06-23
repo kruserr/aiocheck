@@ -30,11 +30,16 @@ class Database():
     def __init__(self, mode = 'verbose'):
         self.__hosts = []
         self.__errors = []
-        self.__mode = mode
         self.__last_errors = []
         self.__add_header = True
         self.__file_locked = False
         self.__errors_locked = False
+
+        valid_modes = ['verbose', 'status']
+        if mode in valid_modes:
+            self.__mode = mode
+        else:
+            self.__mode = 'verbose'
         
         try:
             with open('.aiocheck_persist.json', 'r') as f:
