@@ -15,3 +15,4 @@
 
 from aiocheck.Database import Database
 from aiocheck.Host import Host
+from aiocheck import cli
