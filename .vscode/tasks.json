@@ -6,7 +6,9 @@
             "type": "shell",
             "command": "",
             "presentation": {
-                "reveal": "never"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "group": {
                 "kind": "build",
@@ -20,7 +22,9 @@
             "type": "shell",
             "command": "python setup.py sdist bdist_wheel",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "group": "build",
             "problemMatcher": [],
@@ -30,7 +34,9 @@
             "type": "shell",
             "command": "pyinstaller --onefile --name aiocheck --distpath bin src/aiocheck/cli/main.py",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "group": "build",
             "problemMatcher": [],
@@ -40,7 +46,9 @@
             "type": "shell",
             "command": "python -m twine upload dist/*",
             "presentation": {
-                "reveal": "always"
+                "reveal": "always",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "group": "build",
             "problemMatcher": [],
@@ -50,7 +58,9 @@
             "type": "shell",
             "command": "python -m pip install -e .",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "problemMatcher": [],
         },
@@ -59,17 +69,33 @@
             "type": "shell",
             "command": "git fetch wiki master",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
-            "dependsOn":["git pull wiki"],
+            "dependsOn":["git subtree pull wiki", "git subtree push wiki"],
+            "dependsOrder": "sequence",
             "problemMatcher": [],
         },
         {
-            "label": "git pull wiki",
+            "label": "git subtree pull wiki",
             "type": "shell",
             "command": "git subtree pull --prefix wiki wiki master --squash",
             "presentation": {
-                "reveal": "silent"
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "git subtree push wiki",
+            "type": "shell",
+            "command": "git subtree push --prefix wiki wiki master",
+            "presentation": {
+                "reveal": "silent",
+                "clear": true,
+                "showReuseMessage": false,
             },
             "problemMatcher": [],
         },
