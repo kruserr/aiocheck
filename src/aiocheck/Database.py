@@ -34,6 +34,8 @@ class Database():
         self.__add_header = True
         self.__file_locked = False
         self.__errors_locked = False
+        self.__log_file = 'aiocheck_log.csv'
+        self.__persist_file = '.aiocheck_persist.json'
 
         valid_modes = ['verbose', 'status']
         if mode in valid_modes:
@@ -42,7 +44,7 @@ class Database():
             self.__mode = 'verbose'
         
         try:
-            with open('.aiocheck_persist.json', 'r') as f:
+            with open(self.__persist_file, 'r') as f:
                 self.__errors = json.load(f)
 
             for item in self.__errors:
@@ -217,7 +219,7 @@ class Database():
             self.__file_locked = True
 
             if (len(self.__errors) > 0) and (self.__mode == 'status'):
-                with open('.aiocheck_persist.json', 'w') as f:
+                with open(self.__persist_file, 'w') as f:
                     json.dump(self.__errors, f, indent=4, default=str)
 
             header = 'address, alive, timestamp\n'
@@ -227,10 +229,17 @@ class Database():
                 result = header
 
             if (self.__mode == 'verbose') and (self.__add_header):
-                with open('aiocheck_log.csv', 'r') as f:
-                    log_file = f.read()
-                if log_file.split('\n')[0] != header.replace('\n', ''):
+                try:
+                    with open(self.__log_file, 'r') as f:
+                        log_file = f.read()
+                    if log_file.split('\n')[0] != header.replace('\n', ''):
+                        result = header
+                        target = open(self.__log_file, 'w')
+                        target.close()
+                except Exception:
+                    pass
                     result = header
+                finally:
                     self.__add_header = False
 
             for error in self.__errors:
@@ -242,7 +251,7 @@ class Database():
                 file_mode = 'a'
 
             if len(result) > 0:
-                with open('aiocheck_log.csv', file_mode) as f:
+                with open(self.__log_file, file_mode) as f:
                     f.write(result)
 
             self.__last_errors = self.__errors
