@@ -22,7 +22,7 @@ dist/*
 .pytest_cache
 .tox
 htmlcov/*
-.coverage
+.coverage*
 coverage.xml
 
 # Custom
