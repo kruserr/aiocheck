@@ -64,6 +64,11 @@ class Database():
             ```
         """
 
+        try:
+            host.get_addr()
+        except AttributeError:
+            raise ValueError('Not a Host')
+        
         self.__hosts.append(host)
 
     def select(self, addr = None):
