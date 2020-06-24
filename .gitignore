@@ -19,6 +19,11 @@ bin-int/*
 *secret.ini
 *__pycache__*
 dist/*
+.pytest_cache
+.tox
+htmlcov/*
+.coverage
+coverage.xml
 
 # Custom
 test/test_container/db
