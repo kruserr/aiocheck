@@ -20,4 +20,3 @@ CTRL+P
 ```
 >Tasks: Run Task
 ```
-
