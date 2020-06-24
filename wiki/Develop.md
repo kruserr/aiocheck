@@ -5,8 +5,9 @@
 ### Open in VS Code
 ```
 git clone https://github.com/kruserr/aiocheck.git
-pip install --user --upgrade setuptools wheel twine pyinstaller
+python -m pip install --upgrade pip setuptools wheel pytest tox twine pyinstaller
 cd aiocheck
+python -m pip install -e .
 code .
 ```
 
@@ -19,3 +20,4 @@ CTRL+P
 ```
 >Tasks: Run Task
 ```
+
