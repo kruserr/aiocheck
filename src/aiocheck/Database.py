@@ -36,6 +36,7 @@ class Database():
         self.__errors_locked = False
         self.__log_file = 'aiocheck_log.csv'
         self.__persist_file = '.aiocheck_persist.json'
+        self.__csv_header = 'address, alive, timestamp\n'
 
         valid_modes = ['verbose', 'status']
         if mode in valid_modes:
@@ -54,6 +55,12 @@ class Database():
 
         asyncio.ensure_future(self.__persist_loop())
     
+    def get_log_file(self):
+        return self.__log_file
+    
+    def get_csv_header(self):
+        return self.__csv_header
+
     def insert(self, host):
         """
             Insert host into database
@@ -227,23 +234,21 @@ class Database():
                 with open(self.__persist_file, 'w') as f:
                     json.dump(self.__errors, f, indent=4, default=str)
 
-            header = 'address, alive, timestamp\n'
-
             result = ''
             if self.__mode == 'status':
-                result = header
+                result = self.__csv_header
 
             if (self.__mode == 'verbose') and (self.__add_header):
                 try:
                     with open(self.__log_file, 'r') as f:
                         log_file = f.read()
-                    if log_file.split('\n')[0] != header.replace('\n', ''):
-                        result = header
+                    if log_file.split('\n')[0] != self.__csv_header.replace('\n', ''):
+                        result = self.__csv_header
                         target = open(self.__log_file, 'w')
                         target.close()
                 except Exception:
                     pass
-                    result = header
+                    result = self.__csv_header
                 finally:
                     self.__add_header = False
 
