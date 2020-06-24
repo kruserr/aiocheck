@@ -24,7 +24,7 @@ class Host():
         self.__alive = False
         self.__timestamp = datetime.datetime.utcnow()
         self.__errors = {}
-        self.__data = None
+        self.__data = ''
 
         asyncio.ensure_future(self.__ping_loop())
 
