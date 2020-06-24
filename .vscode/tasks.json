@@ -10,10 +10,7 @@
                 "clear": false,
                 "showReuseMessage": true,
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "dependsOn":["Build Executable", "wsl pyinstaller", "Build PyPI"],
             "problemMatcher": [],
         },
@@ -120,6 +117,21 @@
                 "reveal": "silent",
                 "clear": false,
                 "showReuseMessage": false,
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "tox",
+            "presentation": {
+                "reveal": "silent",
+                "clear": false,
+                "showReuseMessage": true,
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
             },
             "problemMatcher": [],
         },
