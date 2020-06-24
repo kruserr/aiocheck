@@ -1,17 +1,25 @@
 import setuptools
 
 
-with open('README.md', 'r') as f:
-    LONG_DESCRIPTION = f.read()
+DESCRIPTION = 'A python asyncio host health checker using native ping commands'
 
-with open('VERSION', 'r') as f:
-    VERSION = f.read()
+try:
+    with open('README.md', 'r') as f:
+        LONG_DESCRIPTION = f.read()
+except FileNotFoundError:
+    LONG_DESCRIPTION = DESCRIPTION
+
+try:
+    with open('VERSION', 'r') as f:
+        VERSION = f.read()
+except FileNotFoundError:
+    VERSION = 'test'
 
 setuptools.setup(
     name='aiocheck',
     version=VERSION,
     author='kruserr',
-    description='A python asyncio host health checker using native ping commands',
+    description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='https://github.com/kruserr/aiocheck',
@@ -22,6 +30,7 @@ setuptools.setup(
     },
     packages=setuptools.find_packages(
         where='src',
+        exclude=['tests*'],
     ),
     package_dir={
         '': 'src',
@@ -40,5 +49,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
