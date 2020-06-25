@@ -37,7 +37,7 @@ setuptools.setup(
     },
     install_requires=[],
     entry_points = {
-        'console_scripts': ['aiocheck=aiocheck.cli:main'],
+        'console_scripts': ['aiocheck=aiocheck.__main__:main'],
     },
     zip_safe=True,
     classifiers=[
@@ -49,5 +49,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.8',
 )
