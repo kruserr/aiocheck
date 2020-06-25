@@ -1,7 +1,7 @@
 import aiocheck
 
 
-def main(func_args = ''):
+def main():
     """
         Entrypoint for running the CLI script
     """
