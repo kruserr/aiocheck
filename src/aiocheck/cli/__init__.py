@@ -49,16 +49,20 @@ class cli():
         )
 
         if len(func_args) == 0:
-            self.__args = parser.parse_args()
+            try:
+                self.__args = parser.parse_args()
+            except:
+                self.__args = parser.parse_args(func_args.split())
         else:
             self.__args = parser.parse_args(func_args.split())
         
         self.__exit = False
         self.__menu = menu
         self.__timeout = timeout
-        self.__loop = asyncio.get_event_loop()
         self.__db = aiocheck.Database(self.__args.mode)
         self.__args.addresses = set(self.__args.addresses)
+
+        self.__loop = asyncio.get_event_loop()
 
     def __clear_console(self):
         os.system('cls' if os.name=='nt' else 'clear')
