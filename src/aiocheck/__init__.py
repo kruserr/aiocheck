@@ -6,7 +6,18 @@
     Example:
     ```
     import aiocheck
-    aiocheck.cli.main('localhost')
+    
+    addrs = ''
+    for i in range(0, 3):
+        for j in range(1, 255):
+            addrs += f"10.20.{i}.{j} "
+
+    cli = aiocheck.cli(
+        addrs,
+        timeout=10,
+        menu=False,
+    )
+    cli.run_forever()
     ```
 
     :copyright: 2020 kruserr
@@ -16,4 +27,4 @@
 
 from aiocheck.Database import Database
 from aiocheck.Host import Host
-from aiocheck import cli
+from aiocheck.cli import cli
