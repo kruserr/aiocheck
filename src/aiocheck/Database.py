@@ -32,6 +32,7 @@ class Database():
         self.__errors = []
         self.__last_errors = []
         self.__add_header = True
+        self.__is_stopped = True
         self.__file_locked = False
         self.__errors_locked = False
         self.__log_file = 'aiocheck_log.csv'
@@ -55,8 +56,14 @@ class Database():
 
         asyncio.ensure_future(self.__persist_loop())
     
+    def stop(self):
+        self.__is_stopped = True
+
     def get_log_file(self):
         return self.__log_file
+
+    def get_persist_file(self):
+        return self.__persist_file
     
     def get_csv_header(self):
         return self.__csv_header
@@ -215,7 +222,11 @@ class Database():
         return True
 
     async def __persist_loop(self):
+        self.__is_stopped = False
         while True:
+            if self.__is_stopped:
+                break
+            
             asyncio.ensure_future(self.__export())
             await asyncio.sleep(5)
     

@@ -3,6 +3,7 @@ from aiocheck.cli.main import main
 
 import os
 import sys
+import time
 import asyncio
 import argparse
 
@@ -128,6 +129,7 @@ class cli():
 
         try:
             self.__loop.run_forever()
+            self.__db.stop()
         except KeyboardInterrupt:
             pass
 
@@ -137,6 +139,7 @@ class cli():
         """
 
         self.__loop.stop()
+        self.__db.stop()
 
     async def __func_timeout(self):
         if self.__timeout is not None:
