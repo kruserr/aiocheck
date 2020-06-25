@@ -2,6 +2,14 @@ from aiocheck import Database, Host
 import pytest
 
 
+def test___init__():
+    Database()
+    Database('')
+    Database('verbose')
+    Database('status')
+    Database([''])
+    Database((''))
+
 def test_insert():
     db = Database()
     addr1 = 'localhost'
@@ -94,3 +102,6 @@ def test___error_equal():
 
     assert db._Database__error_equal(host1.get_json(), host1.get_json()) == True
     assert db._Database__error_equal(host1.get_json(), host2.get_json()) == False
+    #host3 = host1
+    #host3.__Host__alive = True
+    #assert db._Database__error_equal(host1.get_json(), host3.get_json()) == False
