@@ -1,4 +1,5 @@
 from aiocheck import Database, Host
+import datetime
 import pytest
 import json
 
@@ -31,9 +32,20 @@ def test___eq__():
     addr3 = 'x011?!-\n/\\nw#!/.,x;{test}[lol]'
     host1 = Host(addr1, db)
     host2 = Host(addr2, db)
+    host3 = Host(addr2, db)
 
     assert (host1 == host1) == True
     assert (host1 == host2) == False
+    assert (host2 == host3) == True
+
+    host3._Host__alive = True
+    assert (host2 == host3) == False
+
+    host3._Host__alive = False
+    assert (host2 == host3) == True
+
+    host3._Host__timestamp = 1
+    assert (host2 == host3) == False
 
 def test_get_csv():
     db = Database()

@@ -99,9 +99,10 @@ def test___error_equal():
     addr3 = 'x011?!-\n/\\nw#!/.,x;{test}[lol]'
     host1 = Host(addr1, db)
     host2 = Host(addr2, db)
+    host3 = Host(addr2, db)
 
     assert db._Database__error_equal(host1.get_json(), host1.get_json()) == True
     assert db._Database__error_equal(host1.get_json(), host2.get_json()) == False
-    #host3 = host1
-    #host3.__Host__alive = True
-    #assert db._Database__error_equal(host1.get_json(), host3.get_json()) == False
+
+    host3._Host__alive = True
+    assert db._Database__error_equal(host2.get_json(), host3.get_json()) == False
