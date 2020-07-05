@@ -64,10 +64,6 @@ code .
 ```
 
 ### Run VS Code Tasks
-CTRL+SHIFT+B
-
-or
-
 CTRL+P
 ```
 >Tasks: Run Task
